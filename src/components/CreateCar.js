@@ -22,6 +22,10 @@ function CreateCar() {
       year: arr[7],
       carName: arr[8],
       model: arr[9],
+      topSpeed:arr[10],
+      enginetype:arr[11],
+      enginecapacity: arr[12], 
+      milage:arr[13]
     };
 
     Axios.post("http://localhost:4000/carRoute/add-car", data)
@@ -49,7 +53,12 @@ function CreateCar() {
           priceValue=""
           yearValue=""
           carNameValue=""
-          moddelVlue="">Create Car</CarForm>
+          modelValue=""
+          topSpeedValue=""
+          enginetypeValue=""
+          enginecapcityValue=""
+          milage=""
+          >Create Car</CarForm>
         
        
       </form>

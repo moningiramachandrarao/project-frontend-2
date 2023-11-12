@@ -1,6 +1,5 @@
 import Axios from "axios";
 import {Link} from "react-router-dom";
-
 function ShopList(props) {
     const { _id, carName, model, year, price, img1} = props.obj;
     const handleClick = () =>{
@@ -26,6 +25,7 @@ function ShopList(props) {
                 <p className="card-text">Model:{model}</p>
                 <p className="card-text">Year:{year}</p>
                 <p className="card-text">Price: {price}/-</p>
+
                 <button onClick={handleClick} class="text-light btn btn-danger">Delete</button>
                 <Link class="text-decoration-none text-light mx-3" to={"/modify/" + _id}>
 <button class="btn btn-success">

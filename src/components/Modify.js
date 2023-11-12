@@ -15,7 +15,12 @@ function Modify() {
         price: "",
         year: "",
        carName:"",
-       model:""
+       model:"",
+       topSpeed:"",
+       enginetype:"",
+       enginecapacity:"",
+       milage:""
+
     });
     const [newData, setNewData] = useState([]);
     useEffect(() => {
@@ -32,7 +37,11 @@ function Modify() {
                         price,
                         year,
                        carName,
-                       model
+                       model,
+                       topSpeed,
+                       enginetype,
+                       enginecapacity,
+                       milage
                     } = res.data;
                     setInitialValue({
                         img1,
@@ -43,9 +52,12 @@ function Modify() {
                         img6,
                         price,
                         year,
-                       
                        carName,
-                       model
+                       model,
+                       topSpeed,
+                       enginetype,
+                       enginecapacity,
+                       milage
                     });
                 } else
                     Promise.reject();
@@ -65,11 +77,10 @@ function Modify() {
             year: newData[7],
             model:newData[9],
             carName:newData[8],
-
-
-
-
-
+            topSpeed:newData[10],
+            enginetype:newData[11],
+            enginecapacity:newData[12],
+            milage:newData[13]
         };
         Axios.put("http://localhost:4000/carRoute/update-car/" + id, data)
             .then((res) => {
@@ -97,13 +108,12 @@ function Modify() {
                 img6Value={initialValue.img6}
                 priceValue={initialValue.price}
                 yearValue={initialValue.year}
-
                 carNameValue={initialValue.carName}
                 modelValue={initialValue.model}
-
-
-
-
+                topSpeedValue={initialValue.topSpeed}
+                enginetypeValue={initialValue.enginetype}
+                enginecapacityValue={initialValue.enginecapacity}
+                milageValue={initialValue.milage}
             >
                 Modify Car
             </CarForm>

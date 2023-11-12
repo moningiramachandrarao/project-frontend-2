@@ -11,7 +11,13 @@ function CarForm (props){
     const[year,setYear]=useState('');
     const[carName,setCarName]=useState('');
     const[model,setModel]=useState('');
-    const arr=[img1,img2,img3,img4,img5,img6,price,year,carName,model];
+    const[topSpeed,setTopSpeed]=useState('');
+    const[enginetype,setEnginetype]=useState('');
+    const[enginecapacity,setEnginecapacity]=useState('');
+    const[milage,setMilage]=useState('');
+
+
+    const arr=[img1,img2,img3,img4,img5,img6,price,year,carName,model,topSpeed,enginetype,enginecapacity,milage];
     const handleClick=()=>{
       props.getState(arr);
     }
@@ -26,10 +32,13 @@ function CarForm (props){
         setYear(props.yearValue);
         setModel(props.modelValue);
         setCarName(props.carNameValue);     
+        setTopSpeed(props.topSpeedValue);
+        setEnginetype(props.enginetypeValue);
+        setEnginecapacity(props.enginecapacityValue);
+        setMilage(props.milageValue);
 
 
-
-    },[props.img1Value,props.img2Value,props.img3Value,props.img4Value,props.img5Value,props.img6Value,props.priceValue,props.yearValue,props.carNameValue,props.modelValue]);
+    },[props.img1Value,props.img2Value,props.img3Value,props.img4Value,props.img5Value,props.img6Value,props.priceValue,props.yearValue,props.carNameValue,props.modelValue,props.topSpeedValue,props.enginetypeValue,props.enginecapacityValue,props.milageValue]);
     return(
         <div class="m-5" >
             
@@ -70,8 +79,24 @@ function CarForm (props){
             <label for="model" class="form-label"> Model:</label>
             <input type="text"  defaultValue={props.modelValue} class="form-control"onChange={(event)=>setModel(event.target.value)}placeholder="Enter Model" id="model"/>
         </div>
+        <div class="mb-3">
+            <label for="speed" class="form-label"> Top Speed:</label>
+            <input type="text"  defaultValue={props.topSpeedValue} class="form-control"onChange={(event)=>setTopSpeed(event.target.value)}placeholder="Enter Top Speed" id="speed"/>
+        </div>
+        <div class="mb-3">
+            <label for="tyepe" class="form-label"> Engine Type:</label>
+            <input type="text"  defaultValue={props.enginetypeValue} class="form-control"onChange={(event)=>setEnginetype(event.target.value)}placeholder="Enter Engine Type" id="type"/>
+        </div>
+        <div class="mb-3">
+            <label for="capacity" class="form-label"> Engine Capacity:</label>
+            <input type="text"  defaultValue={props.enginecapacityValue} class="form-control"onChange={(event)=>setEnginecapacity(event.target.value)}placeholder="Enter Engine Capcity" id="capcity"/>
+        </div>
+        <div class="mb-3">
+            <label for="milage" class="form-label"> Milage:</label>
+            <input type="text"  defaultValue={props.milageValue} class="form-control"onChange={(event)=>setMilage(event.target.value)}placeholder="Enter Milage" id="milage"/>
+        </div>
         
-        <button onClick={handleClick} class="btn btn-success" type="submit">{props.children}</button>
+        <button onClick={handleClick} class="btn btn-mute"style={{ backgroundColor: "#ffac3c", color: "#282c4c" }} type="submit">{props.children}</button>
 
     
         </div>
