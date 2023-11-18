@@ -27,11 +27,13 @@ function CreateCar() {
       enginecapacity: arr[12], 
       milage:arr[13]
     };
+    
 
     Axios.post("https://backendss-uvix.onrender.com/carRoute/add-car", data)
           .then((res) => {
             if (res.status === 200) {
               alert("Record added");
+              window.location.href="/#/list";
             } else {
               alert("Failed to add record");
             }

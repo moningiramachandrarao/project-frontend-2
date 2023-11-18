@@ -84,8 +84,10 @@ function Modify() {
         };
         Axios.put("https://backendss-uvix.onrender.com/carRoute/update-car/" + id, data)
             .then((res) => {
-                if (res.status === 200)
+                if (res.status === 200){
                     alert("Record updated successfully");
+                    window.location.href="/#/home";
+                }
                 else
                     Promise.reject();
             })
