@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
@@ -14,30 +15,26 @@ import Maintain from "./components/Maintain";
 import Repair from "./components/Repair";
 import Upgrade from "./components/Upgrade";
 import ShopList from './components/shoplist';
+
 function App() {
-
-
   return (
     <div className="container-fluid">
-      
-        <HashRouter>
-          <Nav  />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/create" element={<CreateCar />} />
-            <Route path="/modify/:id" element={<Modify />} />
-            <Route path="/list" element={<List />} />
-            <Route path="/maintain" element={<Maintain />} />
-            <Route path="/repair" element={<Repair />} />
-            <Route path="/upgrade" element={<Upgrade />} />
-            <Route path="/signin" element={<SignIn/>}/>
-           <Route path="/shoplist/:id" element={<ShopList/>}/>
-          </Routes>
-          <Footer />
-        </HashRouter>
-    
-      
+      <HashRouter>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/create" element={<CreateCar />} />
+          <Route path="/modify/:id" element={<Modify />} />
+          <Route path="/list" element={<List />} />
+          <Route path="/maintain" element={<Maintain />} />
+          <Route path="/repair" element={<Repair />} />
+          <Route path="/upgrade" element={<Upgrade />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/shoplist/:id" element={<ShopList />} />
+        </Routes>
+        {localStorage.getItem('islogged') === 'true' && <Footer />}
+      </HashRouter>
     </div>
   );
 }

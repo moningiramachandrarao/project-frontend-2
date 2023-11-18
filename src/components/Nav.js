@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-
 function Nav() {
   const handleLogout = () => {
     localStorage.setItem('islogged', 'false');
@@ -36,6 +35,7 @@ function Nav() {
             Logout
           </button>
         </div>
+        
       );
     } 
   };
