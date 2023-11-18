@@ -1,51 +1,97 @@
 import React, { useState } from 'react';
-const SignIn = ({ onLogin }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPass] = useState('');
+function SignIn() {
+  const [credentials, setCredentials] = useState({
+    username: '',
+    password: '',
+  });
+
   const [message, setMessage] = useState('');
-  const mockUser = {
-    username: 'admin',
-    password: '1234',
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setCredentials((prevCredentials) => ({
+      ...prevCredentials,
+      [name]: value,
+    }));
+  };
+  const redirectToHome = () => {
+    window.location.href = '/';
   };
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (username === mockUser.username && password === mockUser.password) {
+    const mockUser = {
+      username: 'admin',
+      password: '1234',
+    };
+
+    if (credentials.username === mockUser.username && credentials.password === mockUser.password) {
       alert('Login successful');
-      onLogin(); 
+      localStorage.setItem('islogged', true);
+      redirectToHome();
     } else {
-      setMessage('Invalid username or password');document.getElementById("message").style.color = "red";;
+      setMessage('Invalid username or password');
+      document.getElementById('message').style.color = 'red';
     }
-  }
+  };
+
+  const styles = {
+    container: {
+      maxWidth: '50%',
+    },
+    heading: {
+      color: '#ffac3c',
+    },
+    message: {
+      my: '2',
+      textAlign: 'center',
+    },
+    form: {
+      control: {
+        display: 'grid',
+        margin: 'auto',
+      },
+    },
+  };
 
   return (
-    <div style={{ maxWidth: '50%' }} className='d-grid mx-auto'>
-      <h2 className='text-center mb-4' style={{color:" #ffac3c"}}>Login</h2>
-      <p id='message' className='my-2 text-center'>
+    <div style={styles.container} className='d-grid mx-auto' >
+      <h2 style={styles.heading} className='text-center mb-4'>
+         Admin Login
+      </h2>
+      <p id='message' style={styles.message}>
         {message}
       </p>
-      <form className='form-control' onSubmit={handleSubmit}>
-        <label htmlFor='user' className='form-label'>
-          Username
+      <form style={styles.form.control} onSubmit={handleSubmit}>
+      <div className='d-flex m-2'>
+
+        <label htmlFor='username' className='form-label mx-2'>
+          Username:
         </label>
         <input
           type='text'
-          id='user'
-          onChange={(event) => setUsername(event.target.value)}
-          className='form-control my-2'
+          id='username'
+          name='username'
+          value={credentials.username}
+          onChange={handleChange}
+          className='form-control '
           placeholder='Enter your Username'
-        />
-        <label htmlFor='password' className='form-label'>
-          Password
+        /></div>
+        <div className='d-flex m-2'>
+        <label htmlFor='password' className='form-label mx-2 '>
+          Password:
         </label>
         <input
           type='password'
           id='password'
-          onChange={(event) => setPass(event.target.value)}
-          className='form-control my-2'
+          name='password'
+          value={credentials.password}
+          onChange={handleChange}
+          className='form-control '
           placeholder='Enter your password'
         />
-        <button type='submit' className='btn btn-primary'>
+        </div>
+        <button type='submit' className='btn btn-mute my-2 'style={{ backgroundColor: "#ffac3c",color: "#282c4c" }}>
           Login
         </button>
       </form>

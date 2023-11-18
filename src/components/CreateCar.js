@@ -28,7 +28,7 @@ function CreateCar() {
       milage:arr[13]
     };
 
-    Axios.post("http://localhost:4000/carRoute/add-car", data)
+    Axios.post("https://backendss-uvix.onrender.com/carRoute/add-car", data)
           .then((res) => {
             if (res.status === 200) {
               alert("Record added");
@@ -39,7 +39,7 @@ function CreateCar() {
           .catch((err) => alert("Error: " + err));
       
   };
-
+  
   return (
     <div>
       <form onSubmit={handleSubmit}>

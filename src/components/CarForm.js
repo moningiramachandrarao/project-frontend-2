@@ -39,6 +39,7 @@ function CarForm (props){
 
 
     },[props.img1Value,props.img2Value,props.img3Value,props.img4Value,props.img5Value,props.img6Value,props.priceValue,props.yearValue,props.carNameValue,props.modelValue,props.topSpeedValue,props.enginetypeValue,props.enginecapacityValue,props.milageValue]);
+   
     return(
         <div class="m-5" >
             
@@ -97,8 +98,6 @@ function CarForm (props){
         </div>
         
         <button onClick={handleClick} class="btn btn-mute"style={{ backgroundColor: "#ffac3c", color: "#282c4c" }} type="submit">{props.children}</button>
-
-    
         </div>
     )
 }
