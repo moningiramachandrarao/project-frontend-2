@@ -1,7 +1,7 @@
 import Axios from "axios";
 import{Link} from "react-router-dom";
 function ShopList(props) {
-    const { _id, carName, model, year, price, img1} = props.obj;
+    const { _id, carName, model, year, price, img1,topSpeed,enginecapacity,enginetype,milage} = props.obj;
     
 
      
@@ -20,14 +20,55 @@ function ShopList(props) {
 
     return (
        
-        <div className="col-md-4 mb-4" >
-            <div className="card"style={{ backgroundColor: "#ffac3c", color: "#282c4c" }}>
+        <div className="col-md-6 mb-4" >
+            <div className="card"style={{ backgroundColor: "#ffac3c", color: "#282c4c",minHeight: "40vh", minWidth: "300px" }}>
               <img className="card-img-top" src={img1} alt={carName} />
               <div className="card-body">
-                <h5 className="card-title">{carName}</h5>
-                <p className="card-text">Model:{model}</p>
-                <p className="card-text">Year:{year}</p>
-                <p className="card-text">Price: {price}</p>
+                <h2 className="card-text text-center">{carName}</h2>
+              <div>
+    <table style={{ borderSpacing: "40px" }}>
+      <tr>
+        <th>Model</th>
+        <th></th>
+        <th>Year</th>
+        
+      </tr>
+      <tr>
+        <td>{model}</td>
+        <td></td>
+        <td>{year}</td>
+      </tr>
+      <tr>
+        <th>Top Speed</th><td></td>
+        <th>Engine Type</th>
+      </tr>
+      <tr>
+        <td>{topSpeed}</td><td></td>
+        <td>{enginetype}</td>
+      </tr>
+      <tr>
+        <th>Engine Capacity</th><td></td>
+        <th>Milage</th>
+      </tr>
+      <tr>
+        <td>{enginecapacity}</td><td></td>
+        <td>{milage}</td>
+      </tr>
+      <tr>
+        <td colSpan="2"><hr/></td>
+      </tr>
+      <tr>
+        <td></td>
+        <th>Price</th>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>₹{price}</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
 
                 <button onClick={handleClick} class="text-light btn btn-danger">Delete</button>
                 <Link class="text-decoration-none text-light mx-3" to={"/modify/" + _id}>

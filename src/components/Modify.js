@@ -87,7 +87,7 @@ function Modify() {
             .then((res) => {
                 if (res.status === 200){
                     alert("Record updated successfully");
-                    window.location.href="/#/";
+                    window.location.href="/#/list";
                 }
                 else
                     Promise.reject();
