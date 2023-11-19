@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 function Nav() {
   const handleLogout = () => {
     localStorage.setItem('islogged', 'false');
+    window.location.reload();
     window.location.href="/#/";
   };
 

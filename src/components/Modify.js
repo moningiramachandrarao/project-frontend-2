@@ -65,7 +65,8 @@ function Modify() {
             .catch((err) => alert(err));
     }, [id]);
 
-    const handleSubmit = () => {
+    const handleSubmit = (event) => {
+    event.preventDefault();
         const data = {
             img1: newData[0],
             img2: newData[1],
@@ -86,7 +87,7 @@ function Modify() {
             .then((res) => {
                 if (res.status === 200){
                     alert("Record updated successfully");
-                    window.location.href="/#/home";
+                    window.location.href="/#/";
                 }
                 else
                     Promise.reject();

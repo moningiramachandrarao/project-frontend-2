@@ -10,7 +10,7 @@ function CreateCar() {
   };
 
   const handleSubmit = (event) => {
-  
+  event.preventDefault();
     const data = {
       img1: arr[0],
       img2: arr[1],
