@@ -55,12 +55,11 @@ function ShopList(props) {
         <td>{milage}</td>
       </tr>
       <tr>
-        <td colSpan="2"><hr/></td>
+        <td colSpan="3"><hr/></td>
       </tr>
       <tr>
         <td></td>
         <th>Price</th>
-        <td></td>
       </tr>
       <tr>
         <td></td>
@@ -70,7 +69,7 @@ function ShopList(props) {
     </table>
   </div>
 
-                <button onClick={handleClick} class="text-light btn btn-danger">Delete</button>
+                <button onClick={handleClick} class="text-light btn btn-danger my-2">Delete</button>
                 <Link class="text-decoration-none text-light mx-3" to={"/modify/" + _id}>
 <button class="btn btn-success">
     Edit
