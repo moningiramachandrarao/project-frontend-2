@@ -21,7 +21,7 @@ function ShopList(props) {
     return (
        
         <div className="col-md-6 mb-4" >
-            <div className="card"style={{ backgroundColor: "#ffac3c", color: "#282c4c",minHeight: "40vh", minWidth: "300px" }}>
+            <div className="card"style={{ backgroundColor: "#ffac3c", color: "#282c4c",minHeight: "35vh", minWidth: "300px" }}>
               <img className="card-img-top" src={img1} alt={carName} />
               <div className="card-body">
                 <h2 className="card-text text-center">{carName}</h2>
