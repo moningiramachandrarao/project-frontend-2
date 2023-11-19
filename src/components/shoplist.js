@@ -20,8 +20,8 @@ function ShopList(props) {
 
     return (
        
-        <div className="col-md-6 mb-4" >
-            <div className="card"style={{ backgroundColor: "#ffac3c", color: "#282c4c",minHeight: "35vh", minWidth: "300px" }}>
+        <div className="col-md-6 my-2" >
+            <div className="card"style={{ backgroundColor: "#ffac3c", color: "#282c4c",minHeight: "38vh", minWidth: "300px" }}>
               <img className="card-img-top" src={img1} alt={carName} />
               <div className="card-body">
                 <h2 className="card-text text-center">{carName}</h2>
@@ -67,14 +67,15 @@ function ShopList(props) {
         <td></td>
       </tr>
     </table>
-  </div>
+  </div><div class="me-2">
 
-                <button onClick={handleClick} class="text-light btn btn-danger my-2">Delete</button>
+                <button onClick={handleClick} class="text-light btn btn-danger ">Delete</button>
                 <Link class="text-decoration-none text-light mx-3" to={"/modify/" + _id}>
 <button class="btn btn-success">
     Edit
 </button>
 </Link>
+</div>
               </div>
             </div>
           </div>
